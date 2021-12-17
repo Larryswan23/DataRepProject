@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Nav from 'react-bootstrap/Nav';
 import {
   BrowserRouter as Router,
-  Routes,
+  Switch,
   Route
 } from "react-router-dom";
 import  Home from './components/home';
@@ -28,12 +28,13 @@ class App extends Component {
             </Nav>
           </Container>
         </Navbar>
-        <Routes>{/* Routes and element used instead of the switch  due to having v6 on react-router-dom*/}
-          <Route path='/' element={<Home />}></Route>
-          <Route path='/add' element={<Add />}></Route>
-          <Route path='/display' element={<Display/>}></Route>
-          <Route path={'/update/:id'} element={<Update />}></Route>
-        </Routes>
+        <Switch>
+          <Route path='/'exact ><Home /></Route>
+          <Route path='/add'> <Add /></Route>
+          <Route path='/display'><Display/></Route>
+          <Route path="/update/:id" component={Update}></Route>
+        </Switch>
+        
       </div>
       </Router>
     );

@@ -3,6 +3,7 @@ import axios from 'axios';
 
 class Update extends Component {
     constructor() {
+        console.log("test")
         super();
         this.handleSubmit = this.handleSubmit.bind(this);
         this.onChangeName = this.onChangeName.bind(this);
@@ -15,6 +16,8 @@ class Update extends Component {
         }
     }
     componentDidMount(){
+        console.log("test")
+        console.log(this.props.match.params.id)
         axios.get('http://localhost:4000/api/players/'+ this.props.match.params.id)
         .then((response)=>{
             this.setState({
